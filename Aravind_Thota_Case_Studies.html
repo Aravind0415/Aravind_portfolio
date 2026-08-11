@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aravind Reddy Thota — Case Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111826;
+    --paper:#F5F1E7;
+    --paper-line:#DCD4BF;
+    --slate:#3C4250;
+    --amber:#B8843F;
+    --verified:#3E7A63;
+    --card:#FFFDF7;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--slate);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .ledger-bg{
+    background-image:
+      linear-gradient(var(--paper-line) 1px, transparent 1px);
+    background-size: 100% 2.1em;
+  }
+  a{color:inherit;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    background:var(--ink);
+    color:var(--paper);
+    padding:5.5em 1.5em 4.5em;
+    position:relative;
+    overflow:hidden;
+  }
+  header::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+                       linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events:none;
+  }
+  .header-inner{max-width:820px;margin:0 auto;position:relative;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    font-size:0.72rem;
+    color:var(--amber);
+    margin-bottom:1.4em;
+    display:flex;
+    align-items:center;
+    gap:0.6em;
+  }
+  .eyebrow::before{content:"";width:1.6em;height:1px;background:var(--amber);display:inline-block;}
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(2.4rem, 6vw, 3.6rem);
+    line-height:1.05;
+    margin:0 0 0.25em;
+    letter-spacing:-0.01em;
+  }
+  .role{
+    font-size:1.15rem;
+    color:#C9C2AE;
+    margin:0 0 2em;
+    font-weight:400;
+  }
+  .contact-line{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    color:#A69F8C;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.4em 1.2em;
+    border-top:1px solid rgba(255,255,255,0.12);
+    padding-top:1.4em;
+  }
+
+  /* ---------- SUMMARY / STATEMENT ---------- */
+  .statement{
+    max-width:820px;
+    margin:0 auto;
+    padding:4em 1.5em 2em;
+  }
+  .statement p{
+    font-size:1.06rem;
+    line-height:1.75;
+    margin:0 0 1.2em;
+  }
+  .statement .lede{
+    font-family:'Fraunces', serif;
+    font-size:1.35rem;
+    line-height:1.5;
+    color:var(--ink);
+    font-weight:500;
+  }
+
+  /* ---------- METRIC STRIP ---------- */
+  .strip{
+    max-width:820px;
+    margin:2.5em auto 0;
+    padding:0 1.5em;
+  }
+  .strip-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    border:1px solid var(--paper-line);
+    background:var(--card);
+  }
+  .strip-cell{
+    padding:1.3em 1em;
+    text-align:center;
+    border-right:1px solid var(--paper-line);
+  }
+  .strip-cell:last-child{border-right:none;}
+  .strip-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:1.5rem;
+    font-weight:600;
+    color:var(--ink);
+    display:block;
+  }
+  .strip-label{
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--slate);
+    opacity:0.72;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    max-width:820px;
+    margin:3em auto 0;
+    padding:0 1.5em;
+    display:flex;
+    gap:0;
+    border-top:1px solid var(--paper-line);
+    border-bottom:1px solid var(--paper-line);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem;
+    overflow-x:auto;
+  }
+  nav a{
+    padding:1em 1.1em;
+    text-decoration:none;
+    white-space:nowrap;
+    color:var(--slate);
+    opacity:0.6;
+    border-bottom:2px solid transparent;
+    transition:opacity 0.15s ease;
+  }
+  nav a:hover{opacity:1; border-bottom-color:var(--amber);}
+
+  /* ---------- CASE STUDIES ---------- */
+  main{max-width:820px;margin:0 auto;padding:0 1.5em 2em;}
+  .entry{
+    padding:4.5em 0;
+    border-bottom:1px solid var(--paper-line);
+    position:relative;
+  }
+  .entry:last-of-type{border-bottom:none;}
+  .entry-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:1.5em;
+    margin-bottom:1.6em;
+  }
+  .entry-id{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.12em;
+    color:var(--amber);
+    text-transform:uppercase;
+    margin-bottom:0.6em;
+    display:block;
+  }
+  .entry h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.7rem;
+    line-height:1.2;
+    margin:0 0 0.5em;
+    color:var(--ink);
+  }
+  .entry-meta{
+    font-size:0.86rem;
+    color:var(--slate);
+    opacity:0.75;
+  }
+  .stamp{
+    flex-shrink:0;
+    width:88px;
+    height:88px;
+    border:2px solid var(--verified);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transform:rotate(-9deg);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.62rem;
+    font-weight:600;
+    letter-spacing:0.05em;
+    color:var(--verified);
+    text-align:center;
+    line-height:1.3;
+    text-transform:uppercase;
+    opacity:0.85;
+  }
+  .stamp span{display:block;}
+  .stamp .check{font-size:1.3rem;margin-bottom:0.15em;}
+
+  .entry-metrics{
+    display:flex;
+    gap:2.5em;
+    margin:1.6em 0 2em;
+    flex-wrap:wrap;
+  }
+  .em{font-family:'IBM Plex Mono', monospace;}
+  .em-num{font-size:1.3rem;font-weight:600;color:var(--ink);display:block;}
+  .em-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.05em;opacity:0.65;}
+
+  .entry h3{
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--amber);
+    margin:1.8em 0 0.7em;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+  }
+  .entry p{font-size:0.99rem;line-height:1.7;margin:0 0 1em;}
+  .entry ul{margin:0 0 1em; padding-left:1.2em;}
+  .entry li{font-size:0.99rem;line-height:1.65;margin-bottom:0.6em;padding-left:0.2em;}
+  .relevance{
+    background:var(--card);
+    border-left:3px solid var(--verified);
+    padding:1.2em 1.4em;
+    margin-top:1.6em;
+  }
+  .relevance p{margin:0;font-size:0.95rem;}
+
+  /* ---------- FOOTER SECTIONS ---------- */
+  .closing{
+    background:var(--ink);
+    color:var(--paper);
+    padding:4em 1.5em 5em;
+  }
+  .closing-inner{max-width:820px;margin:0 auto;}
+  .closing h3{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin:0 0 1em;
+  }
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:3em;margin-bottom:3em;}
+  .cols div p{margin:0 0 0.4em; font-size:0.92rem; color:#D8D2C0;}
+  .cols div .deg{font-family:'Fraunces', serif; font-size:1.05rem; color:var(--paper); margin-bottom:0.15em;}
+  .toolkit{font-family:'IBM Plex Mono', monospace; font-size:0.85rem; line-height:2; color:#C9C2AE;}
+  .closing-contact{
+    border-top:1px solid rgba(255,255,255,0.15);
+    padding-top:1.8em;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    color:#A69F8C;
+  }
+
+  @media (max-width:640px){
+    .strip-grid{grid-template-columns:repeat(2, 1fr);}
+    .strip-cell:nth-child(2){border-right:none;}
+    .cols{grid-template-columns:1fr;}
+    .entry-head{flex-direction:column;}
+    .stamp{transform:rotate(-6deg) scale(0.85); align-self:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="eyebrow">Case Studies · Financial Analysis → AI Model Evaluation</div>
+    <h1>Case Studies</h1>
+    <p class="role">Aravind Reddy Thota — Financial Analyst, aspiring AI Model Evaluation Specialist</p>
+    <div class="contact-line">
+      <span>St. Louis, MO</span>
+      <span>+1 913-276-4748</span>
+      <span>aravindreddy0415@gmail.com</span>
+      <span>linkedin.com/in/aravind-reddy-thota-bb1891249</span>
+    </div>
+  </div>
+</header>
+
+<section class="statement">
+  <p class="lede">Four case studies from five-plus years validating financial data before it reaches a decision-maker — now applying that same discipline to validating what AI models produce.</p>
+  <p>Every case study below follows the same pattern: a system generated an output, it needed to be checked against a real standard, and the check had to hold up under a deadline. That pattern — output, ground truth, judgment, consequence — is the core of AI model evaluation. It's also just what FP&A work has demanded at McKesson, Mastercard, and Expertise Software Solutions for the past five years.</p>
+</section>
+
+<div class="strip">
+  <div class="strip-grid">
+    <div class="strip-cell"><span class="strip-num">+20%</span><span class="strip-label">Forecast accuracy gain</span></div>
+    <div class="strip-cell"><span class="strip-num">~50%</span><span class="strip-label">Reporting cycle cut</span></div>
+    <div class="strip-cell"><span class="strip-num">4</span><span class="strip-label">Fortune-500-scale review cycles</span></div>
+    <div class="strip-cell"><span class="strip-num">5+ yrs</span><span class="strip-label">FP&amp;A / validation experience</span></div>
+  </div>
+</div>
+
+<nav>
+  <a href="#cs1">01 — Anomaly Detection</a>
+  <a href="#cs2">02 — Forecast Validation</a>
+  <a href="#cs3">03 — Independent Reconciliation</a>
+  <a href="#cs4">04 — Framework Build</a>
+  <a href="#closing">Education &amp; Toolkit</a>
+</nav>
+
+<main>
+
+  <article class="entry" id="cs1">
+    <div class="entry-head">
+      <div>
+        <span class="entry-id">Entry 01 — McKesson · Feb 2025–Present</span>
+        <h2>Validating AI-assisted anomaly detection against accounting logic</h2>
+        <div class="entry-meta">Financial Analyst</div>
+      </div>
+      <div class="stamp"><span class="check">✓</span><span>Human<br>Verified</span></div>
+    </div>
+
+    <div class="entry-metrics">
+      <div class="em"><span class="em-num">+20%</span><span class="em-label">Forecast accuracy</span></div>
+      <div class="em"><span class="em-num">B2B</span><span class="em-label">Enterprise dataset scale</span></div>
+      <div class="em"><span class="em-num">Weekly</span><span class="em-label">Executive reporting cadence</span></div>
+    </div>
+
+    <h3>The Challenge</h3>
+    <p>McKesson piloted an AI-assisted anomaly detection system to flag irregularities in large-scale B2B financial data. The system could surface statistical outliers, but had no way to judge whether a flagged item was a genuine error, a legitimate one-off, or a data artifact. That judgment call needed a person with real accounting expertise sitting between the model's output and the executive dashboard.</p>
+
+    <h3>The Approach</h3>
+    <ul>
+      <li>Reviewed flagged anomalies individually against underlying accounting entries, applying GAAP-based reasoning and historical variance benchmarks rather than accepting the model's flag at face value.</li>
+      <li>Built a repeatable evaluation process: every flagged item checked against source documentation, the relevant regulatory filing, and prior-period trends before classification as true positive, false positive, or context-dependent.</li>
+      <li>Fed classification decisions back into the workflow — acting as the human-in-the-loop layer separating statistical noise from real financial risk.</li>
+    </ul>
+
+    <h3>The Result</h3>
+    <p>This review discipline became the basis for a broader modeling effort — designing Azure/SQL-integrated forecasting models cross-validated against historical variance benchmarks — which lifted forecast accuracy by 20%. Executive reporting turnaround also shortened, since automated Power BI dashboards still passed through the same validation before publication.</p>
+
+    <div class="relevance">
+      <p><strong>Why it matters for AI evaluation:</strong> This is model evaluation work under a different job title — an AI system produces an output, a domain expert checks it against ground truth, and that judgment decides whether it's trustworthy enough to act on. The same discipline transfers directly to evaluating AI-generated financial statements or finance-domain model responses.</p>
+    </div>
+  </article>
+
+  <article class="entry" id="cs2">
+    <div class="entry-head">
+      <div>
+        <span class="entry-id">Entry 02 — McKesson · Feb 2025–Present</span>
+        <h2>Designing a forecast model judged against its own track record</h2>
+        <div class="entry-meta">Financial Analyst</div>
+      </div>
+      <div class="stamp"><span class="check">✓</span><span>Human<br>Verified</span></div>
+    </div>
+
+    <h3>The Challenge</h3>
+    <p>Prior forecasting approaches weren't systematically cross-validated against historical variance, making it hard to know when a forecast should be trusted versus flagged for review.</p>
+
+    <h3>The Approach</h3>
+    <ul>
+      <li>Designed forecasting models integrated with Azure and SQL, structuring large, messy B2B datasets into a form that could be validated systematically.</li>
+      <li>Cross-validated outputs against historical variance benchmarks — the forecasting equivalent of checking an AI model's output against a labeled evaluation set.</li>
+      <li>Embedded internal control checkpoints directly into segment-level reporting, catching discrepancies before they reached executive dashboards rather than after.</li>
+    </ul>
+
+    <h3>The Result</h3>
+    <p>Forecast accuracy improved by 20%, and the control checkpoints reduced the number of unflagged discrepancies reaching leadership. The validation logic itself became reusable — later applied to reviewing AI-flagged anomalies (Entry 01).</p>
+
+    <div class="relevance">
+      <p><strong>Why it matters for AI evaluation:</strong> Building a forecast model and building an evaluation harness require the same underlying skill — defining what "correct" looks like from historical ground truth, then measuring new outputs against that baseline consistently and catching drift early.</p>
+    </div>
+  </article>
+
+  <article class="entry" id="cs3">
+    <div class="entry-head">
+      <div>
+        <span class="entry-id">Entry 03 — Mastercard · Nov 2021–Jun 2023</span>
+        <h2>Reconciling multi-cycle financial statements without direct oversight</h2>
+        <div class="entry-meta">Financial Analyst</div>
+      </div>
+      <div class="stamp"><span class="check">✓</span><span>Human<br>Verified</span></div>
+    </div>
+
+    <div class="entry-metrics">
+      <div class="em"><span class="em-num">~50%</span><span class="em-label">Cycle time reduction</span></div>
+      <div class="em"><span class="em-num">Solo</span><span class="em-label">No direct oversight</span></div>
+      <div class="em"><span class="em-num">Cross-func</span><span class="em-label">Distributed projects</span></div>
+    </div>
+
+    <h3>The Challenge</h3>
+    <p>Mastercard's recurring reporting cycles were slow, and financial statements spanning multiple periods needed reconciling accurately without a supervisor checking every step — a setting that required trustworthy independent judgment, not just technical execution.</p>
+
+    <h3>The Approach</h3>
+    <ul>
+      <li>Automated recurring reporting workflows in Power BI and SQL, cutting cycle time nearly in half and freeing time for higher-precision manual review of market reports and statements.</li>
+      <li>Reconciled multi-cycle financial statements independently, validating accuracy on distributed, cross-functional projects with no direct oversight.</li>
+      <li>Translated complex fiscal data into decision-ready dashboards for non-financial stakeholders, flagging discrepancies before executive review.</li>
+    </ul>
+
+    <h3>The Result</h3>
+    <p>Audit readiness improved as a direct result of the reconciliation discipline, and expense analysis across business units surfaced cost-saving opportunities ahead of quarterly budget cycles.</p>
+
+    <div class="relevance">
+      <p><strong>Why it matters for AI evaluation:</strong> Evaluation work is frequently unsupervised in the same way — handed an output and a rubric, an evaluator has to make a defensible correctness judgment alone. This is a track record of doing exactly that, at speed, without oversight.</p>
+    </div>
+  </article>
+
+  <article class="entry" id="cs4">
+    <div class="entry-head">
+      <div>
+        <span class="entry-id">Entry 04 — Expertise Software Solutions · Aug 2019–Oct 2021</span>
+        <h2>Building a budgeting and forecasting framework for a growing B2B firm</h2>
+        <div class="entry-meta">Financial Analyst</div>
+      </div>
+      <div class="stamp"><span class="check">✓</span><span>Human<br>Verified</span></div>
+    </div>
+
+    <h3>The Challenge</h3>
+    <p>A growing B2B software firm had no budgeting and forecasting framework, and no way to verify accuracy across B2B contracts and regulatory submissions — all under tight, ad hoc turnarounds.</p>
+
+    <h3>The Approach</h3>
+    <ul>
+      <li>Built budgeting and forecasting frameworks from the ground up, critically reviewing regulatory filings, market reports, and accounting data for logical consistency before they went live.</li>
+      <li>Verified accuracy across B2B contracts and regulatory submissions through independent document evaluation on tight-deadline, ad hoc assignments.</li>
+      <li>Automated recurring Power BI reporting to cut manual data-entry errors, reinforcing numerical literacy through repeated cross-checks against source data.</li>
+    </ul>
+
+    <h3>The Result</h3>
+    <p>Planning accuracy improved as the framework matured, manual errors dropped after automation, and the firm gained a repeatable process for evaluating contracts and submissions rather than relying on one-off review.</p>
+
+    <div class="relevance">
+      <p><strong>Why it matters for AI evaluation:</strong> This shows the ability to design an evaluation framework where none existed — defining the criteria, building the review process, iterating on it — rather than only operating inside a framework someone else built. That transfers directly to standing up new AI evaluation rubrics.</p>
+    </div>
+  </article>
+
+</main>
+
+<section class="closing" id="closing">
+  <div class="closing-inner">
+    <div class="cols">
+      <div>
+        <h3>Education</h3>
+        <p class="deg">M.S. Information Technology Management</p>
+        <p>Webster University · Jun 2023 – Feb 2025</p>
+        <p>Relevant coursework: AI for Finance</p>
+        <p class="deg" style="margin-top:1.4em;">B.B.A. Finance</p>
+        <p>Indian Institute of Management and Commerce · 2015 – 2018</p>
+      </div>
+      <div>
+        <h3>Technical Toolkit</h3>
+        <div class="toolkit">
+          SQL<br>Power BI · Tableau<br>Excel (advanced)<br>Azure<br>NetSuite · Oracle · SAP<br>Salesforce · Domo<br>ML fundamentals (graduate coursework)
+        </div>
+      </div>
+    </div>
+    <div class="closing-contact">
+      Aravind Reddy Thota &nbsp;·&nbsp; aravindreddy0415@gmail.com &nbsp;·&nbsp; +1 913-276-4748 &nbsp;·&nbsp; linkedin.com/in/aravind-reddy-thota-bb1891249
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
